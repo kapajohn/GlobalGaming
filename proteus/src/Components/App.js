@@ -8,7 +8,8 @@ function mapStateToProps(state) {
     // We have to declare each reducer
     return {
         popular: state.popularMovies,
-        results: state.results
+        results: state.results,
+        genres: []
     }
 
 }

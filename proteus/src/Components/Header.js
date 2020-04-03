@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {searchResults} from "../redux/actions/index";
-import {Navbar, Nav, Form, FormControl, Button} from 'react-bootstrap';
+import {Navbar, Nav, Form, FormControl} from 'react-bootstrap';
 import {API_KEY} from '../constants/api_key';
 import {Link} from 'react-router-dom';
 
@@ -35,7 +35,7 @@ class Header extends Component {
     }
     render() {
       return <Navbar bg="proteus" expand="lg" variant="proteus" sticky="top">
-      <Navbar.Brand href="#home">PROTEUS</Navbar.Brand>
+      <Navbar.Brand href="/">PROTEUS</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">

@@ -1,34 +1,39 @@
 import React, {Component} from 'react';
-import {Container, Row, DropdownButton, ButtonGroup, Dropdown, Col} from 'react-bootstrap';
+import {Container, Row, Col} from 'react-bootstrap';
 import Movies from './Movies';
 import Header from './Header';
 import MovieDetails from './MovieDetails';
 import {Route} from 'react-router-dom';
 import SearchResults from './SearchResults';
-
-
+import Select from 'react-select';
 
 class Main extends Component {
     constructor() {
         super()
+            
     }
 
     
     
     componentDidMount() {
-        // GET popular movies
-       // this.setState({ loading: true });
+        // TODO make it redux
 
     }
     componentDidUpdate(prevProps, prevState) {
         // re-render UI
-        console.log(prevProps);
-        console.log(prevState);
     }
-
-
+    logChange(val) {
+        console.log( val.value);
+        }
+    
     render() {
-        console.log(this.props.popular)
+        const options = [
+            { value: '28', label: 'Action' },
+            { value: '12', label: 'Adventure' },
+            {value: '16', label: 'Animation'}
+            ];
+           
+        console.log(this.props)
         if (!this.props.popular) return <div className="profile-main-loader">
                                             <div className="loader">
                                             <svg className="circular-loader"viewBox="25 25 50 50" >
@@ -43,24 +48,15 @@ class Main extends Component {
                 <div>
                 <h2 className="text-secondary mt-4">Popular on Proteus</h2>
                 {this.props.popular? <Row>
-                                                <Col className="d-flex justify-content-end" xs={12}>
-                                                <div><strong className="pr-2">Filter by:</strong>
-                                                {[DropdownButton].map((DropdownType, idx) => (
-                                                <>
-                                                    <DropdownType
-                                                    as={ButtonGroup}
-                                                    key={idx}
-                                                    id={`dropdown-button-drop-${idx}`}
-                                                    size="sm"
-                                                    variant="secondary"
-                                                    title="genre"
-                                                    >
-                                                    <Dropdown.Item key="1"  eventKey="1">Action</Dropdown.Item>
-                                                    <Dropdown.Item key="2" eventKey="2">Comedy</Dropdown.Item>
-                                                    <Dropdown.Item key="3" eventKey="3">Drama</Dropdown.Item>                                                    
-                                                    </DropdownType>{' '}
-                                                </>
-                                                ))}
+                                                <Col  xs={12}>
+                                                
+                                                <div className="d-flex align-items-center justify-content-end"><strong className="pr-2">Filter by:</strong>
+                                                <Select className="proteus-select"
+                                                    name="proteus-form-select"
+                                                    placeholder="genre"
+                                                    options={options}
+                                                    onChange={this.logChange}
+                                                    />
                                                 </div>
                                                 </Col>
                                             </Row> : null}

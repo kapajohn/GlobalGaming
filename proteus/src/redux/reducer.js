@@ -16,6 +16,7 @@ function results(state = [], action) {
     }
   }
 
+
 const rootReducer = combineReducers({popularMovies, results});
 
 export default rootReducer

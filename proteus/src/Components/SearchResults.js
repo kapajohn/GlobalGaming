@@ -5,9 +5,9 @@ import Movies from './Movies';
 
 
 class SearchResults extends Component {
-constructor(props) {
-  super(props);
-}
+// constructor(props) {
+//   super(props);
+// }
 render() {
   return(
       
@@ -16,7 +16,7 @@ render() {
             <p>&nbsp;</p>
         <h3 className="border-bottom">Search</h3>
 
-            {this.props.results ? <p>Your search returned <strong>{this.props.results.length}</strong> results</p> : null }
+            {this.props.results.length > 0 ? <p>Your search returned <strong>{this.props.results.length}</strong> results</p> : <p>search for movies</p> }
         </Col>
         {this.props.results.length ? <Movies {...this.props}></Movies> : null}
      </Row>
@@ -27,4 +27,4 @@ function mapStateToProps(state) {
     results: state.results
   };
 }
-export default connect(mapStateToProps)(SearchResults);
+export default connect(mapStateToProps, null)(SearchResults);
