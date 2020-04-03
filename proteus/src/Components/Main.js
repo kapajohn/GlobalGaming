@@ -4,6 +4,7 @@ import Movies from './Movies';
 import Header from './Header';
 import MovieDetails from './MovieDetails';
 import {Route} from 'react-router-dom';
+import SearchResults from './SearchResults';
 
 
 
@@ -55,10 +56,8 @@ class Main extends Component {
                                                     title="genre"
                                                     >
                                                     <Dropdown.Item key="1"  eventKey="1">Action</Dropdown.Item>
-                                                    <Dropdown.Item key="2" eventKey="2">Another action</Dropdown.Item>
-                                                    <Dropdown.Item key="3" eventKey="3">Something else here</Dropdown.Item>
-                                                    <Dropdown.Divider />
-                                                    <Dropdown.Item key="4"  eventKey="4">Separated link</Dropdown.Item>
+                                                    <Dropdown.Item key="2" eventKey="2">Comedy</Dropdown.Item>
+                                                    <Dropdown.Item key="3" eventKey="3">Drama</Dropdown.Item>                                                    
                                                     </DropdownType>{' '}
                                                 </>
                                                 ))}
@@ -74,6 +73,10 @@ class Main extends Component {
                 <div>
                 <MovieDetails {...props}/>
             </div> )}/>
+
+            <Route path="/search" render={() => (
+                <div><SearchResults></SearchResults></div>
+            )}/>
             
         </Container></div>
         
